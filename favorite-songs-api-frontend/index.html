@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>My Favorite Songs</title>
 </head>
 <body>
-    <h1>My Favorite Songs</h1>
-    <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+    <div class="container">
+        <h1 id="main-title">My Favorite Songs</h1>
+        <div id="form-show-buttons">
+          <button class="button" id="add-song" type="button" name="button">Click here to add a song</button>
+          <span id="or"> or </span>
+          <button class="button" id="filter-button" type="button" name="button">Get a random song by an artist</button>
+        </div>
+        <div id="filter-drop-down" class="hidden">
+          <h3>Get a song:</h3>
+          <select id="filter-dropdown">
+            <option value="" disabled selected>Choose Your Artist...</option>
+          </select>
+        </div>
+        <div class="form">
+          <form id="new-song-form" class="hidden">
+            <label for="song-title">Title</label><br>
+            <input type="text" name="song-title"><br>
+            <label for="song-link">Youtube Link</label><br>
+            <input type="text" name="song-link"><br>
+            <label for="artists">Artist:</label><br>
+            <input type="text" name="artists" placeholder="Enter the artist of the song"><br>
+            <input id="form-submit" type="submit" value="Add Song">
+          </form>
+        </div>
+        <div id="song-card-container">
+          
+        </div>
+    </div>
+    <script type="application/javascript" src="src/components/song.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/components/songs.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/components/artists.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/components/app.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/adapters/SongsAdapter.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/adapters/ArtistsAdapter.js" charset="utf-8"></script>
+    <script type="application/javascript" src="src/index.js" charset="utf-8"></script>
 </body>
 </html>
