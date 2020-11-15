@@ -1,0 +1,16 @@
+Song - recipe
+    has_many genres
+    has_many artist through genres
+        title
+
+Artist ingredients
+    has_many genres
+    has_many songs, through genres
+        -name
+
+Genre ingredients_recipe
+    belongs to artist
+    belongs to song
+
+    - reference artist
+    - reference song
