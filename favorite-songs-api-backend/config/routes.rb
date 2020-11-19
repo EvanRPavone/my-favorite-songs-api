@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get '/songs' => 'songs#index'
   get '/songs/:artist_name' => 'songs#show'
   post '/songs' => 'songs#create'

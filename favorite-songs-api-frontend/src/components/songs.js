@@ -12,7 +12,7 @@ class Songs {
         this.fetchAndLoadSongs();
     }
 
-    fetchAndLoadSongs() {
+    fetchAndLoadSongs(){
         this.adapter.getSongs().then(songs => this.createSongs(songs)).then(() => this.addSongsToDom())
     }
 
@@ -37,52 +37,53 @@ class Songs {
     createArrayOfSongArtists(artists) {
         let artistArray = [];
         for (let artist of artists) {
-            artistArray.push(artist.name);
+          artistArray.push(artist.name);
         }
         return artistArray
     }
 
     createSongs(songs) {
         for (let song of songs) {
-            let artists = this.createArrayOfSongArtists(song.attributes.artists)
-            this.songs.push(new Song(song.attributes.title, song.attributes.song_link, artists))
+          let artists = this.createArrayOfSongArtists(song.attributes.artists)
+          this.songs.push(new Song(song.attributes.title, song.attributes.image_link, song.attributes.song_link, artists))
         }
     }
 
     addSongsToDom() {
         for (let song of this.songs) {
-            song.createSongCard()
+          song.createSongCard()
         }
     }
 
     addSong() {
         const form = event.target.parentElement
-        const artists = form[2].value.split(', ')
-        const song = new Song(form[0].value, form[1].value, artists)
+        const artists = form[3].value.split(', ')
+        const song = new Song(form[0].value, form[1].value, form[2].value, artists)
         const configurationObject = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                "title": form[0].value,
-                "song_link": form[1].value,
-                "artists": artists
-            })
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            "title": form[0].value,
+            "image_link": form[1].value,
+            "song_link": form[2].value,
+            "artists": artists
+          })
         };
         this.adapter.postSongToApi(configurationObject).then(function(json) {
-            song.createSongCard();
-            this.toggleButtons();
-            this.toggleForm();
+          song.createSongCard();
+          this.toggleButtons();
+          this.toggleForm();
         }.bind(this))
     }
 
     hideOrShowElement(element) {
         if (element.classList.contains("hidden")) {
-            element.classList.remove("hidden");
+          element.classList.remove("hidden");
         } else {
-            element.className += " hidden";
+          element.className += " hidden";
         }
     }
 
@@ -113,7 +114,7 @@ class Songs {
 
     loadRandomSong(song) {
         let artists = this.createArrayOfSongArtists(song.artists)
-        const s = new Song(song.title, song.song_link, artists)
+        const s = new Song(song.title, song.image_link, song.song_link, artists)
         s.createSongCard();
     }
 }
