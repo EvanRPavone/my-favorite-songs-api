@@ -10,7 +10,7 @@ Keep in mind that this uses PostgreSQL. If you dont have it installed: https://g
 - Start you postgresql server: look up PgAdmin in your windows search bar and run it.
 - Create the database: `rake db:create`
 - Migrate: `rake db:migrate`
-- Seed your database: `rake db:seed`
+- Seed your database(OPTIONAL): `rake db:seed`
 - Start your server: `rails s`
 - Open your index.html (located in favorite-songs-api-frontend) in your browser
 - Keep track of all your favorite songs!

@@ -4,7 +4,8 @@ body{
 
 .card {
     position: relative;
-    box-shadow: 4px 4px 8px 0 #FF4242;
+    border: 1px solid #FF4242;
+    box-shadow: 4px 4px 4px 4px #646464;
     transition: 0.5s;
     width: 24%;
     margin-top: 20px;
@@ -112,6 +113,12 @@ body{
     font-size: 16px;
     padding: 15px;
     cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+  }
+
+  input[type=submit]:hover {
+    background-color: #A70404;
   }
   
   #or {
