@@ -30,7 +30,7 @@ class Songs {
             this.toggleButtons();
         }.bind(this))
         this.artistDropDown.addEventListener("change", function() {
-            this.getAndLoadRandomSongByArtist();
+            this.getAndLoadAllSongsByArtist();
         }.bind(this))
     }
 
@@ -45,7 +45,7 @@ class Songs {
     createSongs(songs) {
         for (let song of songs) {
           let artists = this.createArrayOfSongArtists(song.attributes.artists)
-          this.songs.push(new Song(song.attributes.title, song.attributes.image_link, song.attributes.song_link, artists))
+          this.songs.push(new Song(song.attributes.title, song.attributes.image_link, song.attributes.song_link, song.attributes.genre, song.attributes.album, artists))
         }
     }
 
@@ -57,8 +57,8 @@ class Songs {
 
     addSong() {
         const form = event.target.parentElement
-        const artists = form[3].value.split(', ')
-        const song = new Song(form[0].value, form[1].value, form[2].value, artists)
+        const artists = form[5].value.split(', ')
+        const song = new Song(form[0].value, form[1].value, form[2].value, form[3].value, form[4].value, artists)
         const configurationObject = {
           method: "POST",
           headers: {
@@ -69,6 +69,8 @@ class Songs {
             "title": form[0].value,
             "image_link": form[1].value,
             "song_link": form[2].value,
+            "genre": form[3].value,
+            "album": form[4].value,
             "artists": artists
           })
         };
@@ -106,15 +108,15 @@ class Songs {
         this.cardContainer.innerHTML = "";
     }
 
-    getAndLoadRandomSongByArtist() {
+    getAndLoadAllSongsByArtist() {
         this.clearSongs();
         const artist = event.target.value
-        this.adapter.getSongByArtist(artist).then(json => this.loadRandomSong(json.data.attributes))
+        this.adapter.getSongByArtist(artist).then(json => this.loadAllSongsByArtist(json.data.attributes))
     }
 
-    loadRandomSong(song) {
+    loadAllSongsByArtist(song) {
         let artists = this.createArrayOfSongArtists(song.artists)
-        const s = new Song(song.title, song.image_link, song.song_link, artists)
+        const s = new Song(song.title, song.image_link, song.song_link, song.genre, song.album, artists)
         s.createSongCard();
     }
 }

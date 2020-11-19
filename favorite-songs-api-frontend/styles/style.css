@@ -42,6 +42,7 @@ body{
   
   #main-title {
     text-align: center;
+    background: #646464;
   }
 
   #main-title a {
@@ -100,11 +101,11 @@ body{
   label {
     font-size: 1.2em;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    color: #863013;
+    color: black;
   }
   
   input[type=submit] {
-    background-color: #e26136;
+    background-color: #FF4242;
     color: white;
     border-radius: 8px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
