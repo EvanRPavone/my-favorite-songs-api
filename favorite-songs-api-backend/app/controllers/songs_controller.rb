@@ -1,27 +1,26 @@
 class SongsController < ApplicationController
 
     def index
-        songs = Song.all
-        render json: SongSerializer.new(songs)
+        @songs = Song.all
+        render json: SongSerializer.new(@songs)
     end
 
     def show
-        songs = Artist.find_by(name: params[:artist_name]).songs
-        render json: SongSerializer.new(songs.sample)
+        @songs = Artist.find_by(name: params[:artist_name]).songs
+        render json: SongSerializer.new(@songs.sample)
     end
 
     def create
-        song = Song.new(song_params)
+        @song = Song.new(song_params)
         artists = params[:artists].map { |artist| Artist.find_or_create_by(name: artist) }
-        song.artists << artists
-        song.save
-        render json: SongSerializer.new(song)
+        @song.artists << artists
+        @song.save
+        render json: SongSerializer.new(@song)
     end
 
     def destroy
-        song = Song.find(params[:id])
-        song.destroy
-        render json: song
+        @song = Song.find(name: params[:artist_name]).songs
+        @song.destroy
     end
 
     private
