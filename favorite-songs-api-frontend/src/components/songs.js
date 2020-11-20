@@ -5,8 +5,6 @@ class Songs {
         this.formSubmit = document.getElementById("form-submit");
         this.formButtons = document.getElementById("form-show-buttons");
         this.addSongButton = document.getElementById("add-song");
-        // this.dropDownButton = document.getElementById("filter-button");
-        // this.artistDropDown = document.getElementById("filter-dropdown");
         this.cardContainer = document.getElementById('song-card-container');
         this.bindEventListeners();
         this.fetchAndLoadSongs();
@@ -25,13 +23,6 @@ class Songs {
             this.toggleForm();
             this.toggleButtons();
         }.bind(this))
-        // this.dropDownButton.addEventListener("click", function() {
-        //     this.toggleDropDown();
-        //     this.toggleButtons();
-        // }.bind(this))
-        // this.artistDropDown.addEventListener("change", function() {
-        //     this.getAndLoadAllSongsByArtist();
-        // }.bind(this))
     }
 
     createArrayOfSongArtists(artists) {
@@ -97,26 +88,4 @@ class Songs {
     toggleButtons() {
         this.hideOrShowElement(this.formButtons);
     }
-
-    // toggleDropDown() {
-    //     const dropDown = document.getElementById("filter-drop-down");
-    //     this.hideOrShowElement(dropDown);
-    //     new Artists();
-    // }
-
-    // clearSongs() {
-    //     this.cardContainer.innerHTML = "";
-    // }
-
-    // getAndLoadAllSongsByArtist() {
-    //     this.clearSongs();
-    //     const artist = event.target.value
-    //     this.adapter.getSongByArtist(artist).then(json => this.loadAllSongsByArtist(json.data.attributes))
-    // }
-
-    // loadAllSongsByArtist(song) {
-    //     let artists = this.createArrayOfSongArtists(song.artists)
-    //     const s = new Song(song.title, song.image_link, song.song_link, song.genre, song.album, artists)
-    //     s.createSongCard();
-    // }
 }

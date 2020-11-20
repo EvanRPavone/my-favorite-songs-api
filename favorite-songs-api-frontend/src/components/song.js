@@ -26,6 +26,7 @@ class Song {
       genHeader.innerHTML = `Genre: ${this.genre}`
       cardInfo.appendChild(genHeader)
       const albHeader = document.createElement('h3')
+      albHeader.className = 'album-name'
       albHeader.innerHTML = `Album: ${this.album}`
       cardInfo.appendChild(albHeader)
       const ul = document.createElement('ul')
@@ -35,7 +36,13 @@ class Song {
       const link = document.createElement('a')
       link.href = this.songLink
       link.innerHTML = "View Song on Youtube"
+      const breakPoint = document.createElement('br')
+      const deleteBtn = document.createElement('button')
+      deleteBtn.className = 'deleteBtn'
+      deleteBtn.innerHTML = "Delete"
       footer.appendChild(link)
+      footer.appendChild(breakPoint)
+      footer.appendChild(deleteBtn)
       card.appendChild(cardInfo)
       card.appendChild(footer)
       document.getElementById('song-card-container').appendChild(card)
