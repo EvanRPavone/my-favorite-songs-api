@@ -10,29 +10,21 @@
       <h1 id="main-title"><a href="">Your Favorite Songs</a></h1>
       <div id="form-show-buttons">
         <button class="button" id="add-song" type="button" name="button">Click here to add a song</button>
-        <!-- <span id="or"> or </span>
-        <button class="button" id="filter-button" type="button" name="button">Get a song by an artist</button> -->
       </div>
-      <!-- <div id="filter-drop-down" class="hidden">
-        <h3>Get a song:</h3>
-        <select id="filter-dropdown">
-          <option value="" disabled selected>Select your artist...</option>
-        </select>
-      </div> -->
       <div class="form">
-        <form autocomplete="off" id="new-song-form" class="hidden">
+        <form autocomplete="off" name="songForm" id="new-song-form" class="hidden">
           <label for="song-title">Title</label><br>
-          <input type="text" name="song-title"><br>
+          <input type="text" name="song-title" required><br>
           <label for="image-link">Album Cover Link</label><br>
-          <input type="text" name="image-link"><br>
+          <input type="text" name="image-link" required><br>
           <label for="song-link">Song Link</label><br>
-          <input type="text" name="song-link"><br>
+          <input type="text" name="song-link" required><br>
           <label for="genre">Genre</label><br>
-          <input type="text" name="genre"><br>
+          <input type="text" name="genre" required><br>
           <label for="album">Album</label><br>
-          <input type="text" name="album"><br>
+          <input type="text" name="album" required><br>
           <label for="artists">Artist</label><br>
-          <input type="text" name="artists" placeholder="Enter artist of song"><br>
+          <input type="text" name="artists" placeholder="Enter artist of song" required><br>
           <input id="form-submit" type="submit" value="Add Song">
         </form>
       </div>
