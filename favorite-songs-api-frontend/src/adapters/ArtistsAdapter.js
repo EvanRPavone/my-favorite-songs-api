@@ -7,3 +7,5 @@ class ArtistsAdapter {
         return fetch(this.baseURL).then(response => response.json()).then(json => json.data)
     }
 }
+
+// The Fetch Requests to the artists API

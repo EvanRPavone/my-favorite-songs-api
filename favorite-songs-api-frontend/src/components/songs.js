@@ -89,3 +89,7 @@ class Songs {
         this.hideOrShowElement(this.formButtons);
     }
 }
+
+
+// Adds all the events to the page like clicking add song which toggles the form.
+// Adds the ability to save the songs to the page with the addSong() class function

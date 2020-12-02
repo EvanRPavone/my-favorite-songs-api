@@ -17,3 +17,5 @@ class SongsAdapter {
         return fetch(this.baseURL + `/${artist}`).then(response => response.json())
     }
 }
+
+// The Fetch Requests for songs and gets the song by the artist.

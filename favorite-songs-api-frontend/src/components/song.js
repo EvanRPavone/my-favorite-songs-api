@@ -35,6 +35,7 @@ class Song {
       footer.className = "card-footer"
       const link = document.createElement('a')
       link.href = this.songLink
+      link.target = "_blank"
       link.innerHTML = "View Song on Youtube"
       const breakPoint = document.createElement('br')
       const deleteBtn = document.createElement('button')
@@ -48,3 +49,5 @@ class Song {
       document.getElementById('song-card-container').appendChild(card)
     }
 }
+
+// Creates the song card

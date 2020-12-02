@@ -161,12 +161,10 @@ body{
     font-family: helvetica;
     text-decoration: none;
     text-transform: uppercase;
-    padding-bottom: 5px;
   }
 
   .card-footer button {
     padding: 1px 2px;
-    margin-top: 5px;
     border: 2px solid black;
     border-radius: 4px;
     cursor: pointer;
@@ -174,6 +172,8 @@ body{
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    float: right;
+    margin-right: 10px;
   }
 
   .card-footer button:hover {

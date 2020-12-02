@@ -6,7 +6,7 @@ class SongsController < ApplicationController
     end
 
     def show
-        @songs = Artist.find_by(name: params[:artist_name])
+        @songs = Artist.find_by(id: params[:artist_name])
         render json: SongSerializer.new(@songs)
     end
 
@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     end
 
     def destroy
-        @song = Song.find(name: params[:artist_name])
+        @song = Song.find(id: params[:artist_name])
         @song.destroy
     end
 
